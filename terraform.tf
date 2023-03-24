@@ -4,8 +4,11 @@
 terraform {
 
   cloud {
+
+    organization = "demonstratum-cli"
+
     workspaces {
-      name = "learn-terraform-eks"
+      name = "demo-eks"
     }
   }
 
