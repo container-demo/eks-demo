@@ -43,7 +43,12 @@ aws-cli/2.11.5 Python/3.11.2 Darwin/22.3.0 exe/x86_64 prompt/off
 
 Get `kubectl` config ([more details](https://repost.aws/knowledge-center/eks-cluster-connection)):
 
-`aws eks --region example_region update-kubeconfig --name cluster_name`
+```
+aws eks --region us-west-2 update-kubeconfig --name demo-eks
+```
+
+The `region` and `name` values match those in the `main.tf` file.
+
 
 ### Deleting resources / cleanup
 

@@ -10,13 +10,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-#  cluster_name = "demo-eks-${random_string.suffix.result}"
   cluster_name = "demo-eks"
-}
-
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
 }
 
 module "vpc" {
