@@ -10,7 +10,8 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "demo-eks-${random_string.suffix.result}"
+#  cluster_name = "demo-eks-${random_string.suffix.result}"
+  cluster_name = "demo-eks"
 }
 
 resource "random_string" "suffix" {
@@ -50,7 +51,7 @@ module "eks" {
   version = "19.5.1"
 
   cluster_name    = local.cluster_name
-  cluster_version = "1.24"
+  cluster_version = "1.25"
 
   vpc_id                         = module.vpc.vpc_id
   subnet_ids                     = module.vpc.private_subnets
