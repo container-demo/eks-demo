@@ -37,10 +37,16 @@ aws-cli/2.11.5 Python/3.11.2 Darwin/22.3.0 exe/x86_64 prompt/off
 1. `brew install terraform`
 2. `terraform init`
 3. `terraform plan`
-4. `terraform apply`
+4. `terraform apply -auto-approve`
 
 ### kubectl config
 
 Get `kubectl` config ([more details](https://repost.aws/knowledge-center/eks-cluster-connection)):
 
 `aws eks --region example_region update-kubeconfig --name cluster_name`
+
+### Deleting resources / cleanup
+
+1. `terraform destroy -auto-approve`
+2. Manually delete any load balancers associated with the cluster [in the web console](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#LoadBalancers)
+3. `terraform destroy -auto-approve` again

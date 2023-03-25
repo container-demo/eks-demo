@@ -57,7 +57,8 @@ module "eks" {
   cluster_endpoint_public_access = true
 
   eks_managed_node_group_defaults = {
-    ami_type = "AL2_ARM_64"
+#    ami_type = "AL2_ARM_64"
+    ami_type = "AL2_x86_64"
 
   }
 
@@ -65,7 +66,8 @@ module "eks" {
     one = {
       name = "node-group-1"
 
-      instance_types = ["t4g.small"]
+#      instance_types = ["t4g.small"]
+      instance_types = ["t3.small"]
 
       min_size     = 1
       max_size     = 3
