@@ -18,12 +18,12 @@ app.set('view engine', 'handlebars');
 var port = process.env.PORT || 8080;
 var message = process.env.MESSAGE || 'Hello world!';
 var renderPathPrefix = (
-  process.env.RENDER_PATH_PREFIX ? 
+  process.env.RENDER_PATH_PREFIX ?
     '/' + process.env.RENDER_PATH_PREFIX.replace(/^[\\/]+/, '').replace(/[\\/]+$/, '') :
     ''
 );
 var handlerPathPrefix = (
-  process.env.HANDLER_PATH_PREFIX ? 
+  process.env.HANDLER_PATH_PREFIX ?
     '/' + process.env.HANDLER_PATH_PREFIX.replace(/^[\\/]+/, '').replace(/[\\/]+$/, '') :
     ''
 );
@@ -34,7 +34,6 @@ var nodeName = process.env.KUBERNETES_NODE_NAME || '-';
 var nodeOS = os.type() + ' ' + os.release();
 var applicationVersion = JSON.parse(fs.readFileSync('package.json', 'utf8')).version;
 var containerImage = process.env.CONTAINER_IMAGE || 'paulbouwer/hello-kubernetes:' + applicationVersion
-var containerImageArch = JSON.parse(fs.readFileSync('info.json', 'utf8')).containerImageArch;
 
 logger.debug();
 logger.debug('Configuration');
@@ -46,7 +45,6 @@ logger.debug('HANDLER_PATH_PREFIX=' + process.env.HANDLER_PATH_PREFIX);
 logger.debug('KUBERNETES_NAMESPACE=' + process.env.KUBERNETES_NAMESPACE);
 logger.debug('KUBERNETES_POD_NAME=' + process.env.KUBERNETES_POD_NAME);
 logger.debug('KUBERNETES_NODE_NAME=' + process.env.KUBERNETES_NODE_NAME);
-logger.debug('CONTAINER_IMAGE=' + process.env.CONTAINER_IMAGE);
 
 // Handlers
 
@@ -66,7 +64,6 @@ app.get(handlerPathPrefix + '/', function (req, res) {
       namespace: namespace,
       pod: podName,
       node: nodeName + ' (' + nodeOS + ')',
-      container: containerImage + ' (' + containerImageArch + ')',
       renderPathPrefix: renderPathPrefix
     });
 });
