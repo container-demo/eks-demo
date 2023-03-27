@@ -94,4 +94,5 @@ sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 
 ### History
 
-More Terraform via EKS instructions: https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+- Originally created as a fork of https://github.com/hashicorp/learn-terraform-provision-eks-cluster, based on a Terraform EKS tutorial: https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+- the "hello-app" is derived from https://github.com/paulbouwer/hello-kubernetes
