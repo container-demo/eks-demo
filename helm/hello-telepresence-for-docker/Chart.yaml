@@ -1,5 +1,5 @@
 apiVersion: v2
-name: hello-telepresence-for-docker-app
+name: hello-telepresence-for-docker
 description: An application to demonstrate Telepresence for Docker.
 type: application
 version: 1.0.0
