@@ -12,10 +12,10 @@ service:
   port: 80
 
 deployment:
-  replicaCount: 2
+  replicaCount: 3
   container:
     image:
-      repository: "paulbouwer/hello-kubernetes"
+      repository: "demonstratum/hello-telepresence-for-docker-app"
       tag: "" # uses chart appVersion if not provided
       pullPolicy: IfNotPresent
     port: 8080
