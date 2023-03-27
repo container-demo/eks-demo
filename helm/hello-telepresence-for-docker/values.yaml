@@ -12,7 +12,7 @@ service:
   port: 80
 
 deployment:
-  replicaCount: 3
+  replicaCount: 2
   container:
     image:
       repository: "demonstratum/hello-telepresence-for-docker-app"

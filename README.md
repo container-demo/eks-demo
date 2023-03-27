@@ -34,10 +34,12 @@ aws-cli/2.11.5 Python/3.11.2 Darwin/22.3.0 exe/x86_64 prompt/off
 
 ### Terraform local
 
+From the top level of the repo
+
 1. `brew install terraform`
 2. `terraform init`
 3. `terraform plan`
-4. `terraform apply -auto-approve`
+4. `time terraform apply -auto-approve`
 
 ### kubectl config
 
@@ -49,8 +51,30 @@ aws eks --region us-west-2 update-kubeconfig --name demo-eks
 
 The `region` and `name` values match those in the `main.tf` file.
 
+### Deploying the app
+
+Install the helm chart
+
+```
+cd helm
+helm install -n hello-telepresence-for-docker app ./hello-telepresence-for-docker --debug
+```
+
+Get all details in that namespace
+
+```
+kubectl get all -n hello-telepresence-for-docker
+```
+
+Open the app
+
+```
+open "http://$(kubectl get service -n hello-telepresence-for-docker -o json | jq -r '.items[].status.loadBalancer.ingress[].hostname')"
+```
 
 ### Deleting resources / cleanup
+
+From the top-level of the repo
 
 1. `terraform destroy -auto-approve`
 2. Manually delete any load balancers associated with the cluster [in the web console](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#LoadBalancers)
