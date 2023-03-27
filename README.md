@@ -1,6 +1,4 @@
-# Provision an EKS demo cluster with Terraform
-
-Instructions: https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+# Provision an EKS cluster with Terraform to demonstrate Telepresence for Docker
 
 ### AWS
 
@@ -93,3 +91,7 @@ If needed...
 ```
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```
+
+### History
+
+More Terraform via EKS instructions: https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
