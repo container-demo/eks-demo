@@ -72,7 +72,13 @@ Open the app
 open "http://$(kubectl get service -n hello-telepresence-for-docker -o json | jq -r '.items[].status.loadBalancer.ingress[].hostname')"
 ```
 
-### Deleting resources / cleanup
+### Deleting the app from Kubernetes
+
+```
+helm delete -n hello-telepresence-for-docker $(helm ls --namespace hello-telepresence-for-docker --short)
+```
+
+### Deleting the infrastructure from AWS
 
 From the top-level of the repo
 
