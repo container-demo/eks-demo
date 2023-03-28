@@ -1,6 +1,4 @@
-# Provision an EKS demo cluster with Terraform
-
-Instructions: https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+# Provision an EKS cluster with Terraform to demonstrate Telepresence for Docker
 
 ### AWS
 
@@ -93,3 +91,8 @@ If needed...
 ```
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```
+
+### History
+
+- Originally created as a fork of https://github.com/hashicorp/learn-terraform-provision-eks-cluster, based on a Terraform EKS tutorial: https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks
+- the "hello-app" is derived from https://github.com/paulbouwer/hello-kubernetes
